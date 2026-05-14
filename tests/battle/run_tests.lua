@@ -49,9 +49,9 @@ local function runFile(path, label)
     end
 end
 
-runFile("battle/test_move_compat.lua",      "MoveCompat Tests")
-runFile("battle/test_reconnect_smoke.lua",   "Reconnect Smoke Tests")
-runFile("battle/test_desync_injection.lua", "Desync Injection Tests")
+runFile("tests/battle/test_move_compat.lua",      "MoveCompat Tests")
+runFile("tests/battle/test_reconnect_smoke.lua",   "Reconnect Smoke Tests")
+runFile("tests/battle/test_desync_injection.lua", "Desync Injection Tests")
 
 banner("Summary")
 print(string.format("  Test suites passed: %d", totalPassed))

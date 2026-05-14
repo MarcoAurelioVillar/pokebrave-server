@@ -316,7 +316,7 @@ run("catalog_expansion_no_resolver_edit", function()
     -- The evidence is structural: TurnResolver has no hard-coded move names.
     -- We verify this by grepping TurnResolver source for catalog IDs.
     local turnResolverSrc
-    local f = io.open("battle/TurnResolver.lua", "r")
+    local f = io.open("data/scripts/battle/TurnResolver.lua", "r")
     if f then
         turnResolverSrc = f:read("*a")
         f:close()
