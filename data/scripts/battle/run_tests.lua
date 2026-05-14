@@ -16,7 +16,10 @@ local function runFile(path, label)
     banner(label)
     -- Run each test file in its own subprocess so an os.exit(1) in one
     -- does not kill the runner.
-    local cmd = "lua " .. path
+    -- Embed LUA_PATH so subprocesses find battle modules regardless of how the
+    -- runner was invoked (VAR=val cmd does not export to io.popen children).
+    local lua_path = os.getenv("LUA_PATH") or "./?.lua;./?/init.lua;;"
+    local cmd = "LUA_PATH='" .. lua_path .. "' lua " .. path
     local handle, err = io.popen(cmd, "r")
     if not handle then
         print("  [FAIL] could not spawn: " .. tostring(err))
